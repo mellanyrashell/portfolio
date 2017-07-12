@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html>
 <body style="background-color:#bbff96;">
+          <style>
+#container {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: aquamarine;
+}
+#animate {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-color: greenyellow
+ ;
+}
+</style>
           <h1 style="color:#e587ad;"><b> Mellany Ona </b></h1>
           <img src="http://68.media.tumblr.com/79c1213bb699744f6e51e76c3bfbd8f4/tumblr_osq27aIrqi1t4qoouo1_1280.jpg" alt="" style="width:304px;height:228px;">
           <p style="color:#FFFFFF;">  I'm Mellany Ona, a rising senior at Centreville High School located in Clifton, Virginia. 
           My love for science and technology flourished when I was about 7 years old.
-          I used to go stargazing with my family and ever since then I loved science.
+          I used to go stargazing with my family and eve since then I loved science.
           Whether it was Physics, Biology, Chemistry, or my new found love, Computer Science, 
           science will always be my safe haven. Hopefully I will be able to pusue my childhood
           dream of studying science in the future.</p>
@@ -19,6 +34,30 @@
 <h5 style="color:#e587ad;"> Side Scroller Game(Distant Space)</h5>
 <button onclick="document.getElementById('demo').innerHTML=Date()">The time is?</button>
 <p id="demo"></p>
+ <p>
+<button onclick="myMove()">Click Me</button>
+</p> 
+
+<div id ="container">
+<div id ="animate"></div>
+</div>
+
+<script>
+function myMove() {
+  var elem = document.getElementById("animate");   
+  var pos = 0;
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (pos == 350) {
+      clearInterval(id);
+    } else {
+      pos++; 
+      elem.style.top = pos + 'px'; 
+      elem.style.left = pos + 'px'; 
+    }
+  }
+}
+</script>         
 </body>
 </html>
         
