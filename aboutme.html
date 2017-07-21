@@ -1,64 +1,100 @@
+
 <!DOCTYPE html>
 <html>
-<body style="background-color:#bbff96;">
-          <style>
-#container {
-  width: 400px;
-  height: 400px;
-  position: relative;
-  background: aquamarine;
+<head>
+<style>
+body {font-family: "Lato", sans-serif;}
+
+/* Style the tab */
+div.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
 }
-#animate {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  background-color: lightpink
- ;
+
+/* Style the buttons inside the tab */
+div.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 </style>
-          <h1 style="color:#e587ad;"><b> Mellany Ona </b></h1>
-          <img src="http://68.media.tumblr.com/79c1213bb699744f6e51e76c3bfbd8f4/tumblr_osq27aIrqi1t4qoouo1_1280.jpg" alt="" style="width:304px;height:228px;">
-          <p style="color:#FFFFFF;">  I'm Mellany Ona, a rising senior at Centreville High School located in Clifton, Virginia. 
-          My love for science and technology flourished when I was about 7 years old.
-          I used to go stargazing with my family and eve since then I loved science.
-          Whether it was Physics, Biology, Chemistry, or my new found love, Computer Science, 
-          science will always be my safe haven. Hopefully I will be able to pusue my childhood
-          dream of studying science in the future.</p>
-<h2 style="color:#e587ad;"> Likes and Dislikes</h2>
-<p style="color:#FFFFFF;"> Likes: Food, Animals, Environment, Family, and Friends   Dislikes: staying inside for too long</p>
-<h3 style="color:#e587ad;"> Fun Fact</h3>
-<p style="color:#FFFFFF;"> I can speak Spanish, English, and some French</p>
-<h4 style="color:#e587ad;"> Favorite Websites</h4>
-<p style="color:#FFFFFF;"><a href="https://www.instagram.com/mellanyrashell/">Instagram</a></p>
-<p style="color:#FFFFFF;"><a href="https://twitter.com/mellanyrashell">Twitter</a></p>
-<h5 style="color:#e587ad;"> Side Scroller Game(Distant Space)</h5>
-<button onclick="document.getElementById('demo').innerHTML=Date()">The time is?</button>
-<p id="demo"></p>
- <p>
-<button onclick="myMove()">Click Me</button>
-</p> 
+</head>
+<body>
 
-<div id ="container">
-<div id ="animate"></div>
+<h3>Fade in Tabs</h3>
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'London')">London</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+</div>
+
+<div id="London" class="tabcontent">
+  <h3>London</h3>
+  <p>London is the capital city of England.</p>
+</div>
+
+<div id="Paris" class="tabcontent">
+  <h3>Paris</h3>
+  <p>Paris is the capital of France.</p> 
+</div>
+
+<div id="Tokyo" class="tabcontent">
+  <h3>Tokyo</h3>
+  <p>Tokyo is the capital of Japan.</p>
 </div>
 
 <script>
-function myMove() {
-  var elem = document.getElementById("animate");   
-  var pos = 0;
-  var id = setInterval(frame, 5);
-  function frame() {
-    if (pos == 350) {
-      clearInterval(id);
-    } else {
-      pos++; 
-      elem.style.top = pos + 'px'; 
-      elem.style.left = pos + 'px'; 
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
     }
-  }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
 }
-</script>         
+</script>
+     
 </body>
-</html>
-        
+</html> 
        
